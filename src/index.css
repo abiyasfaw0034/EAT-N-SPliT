@@ -1,13 +1,166 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  /* overflow: hidden; */
+}
+/* the logo */
+.logo {
+  background-color: rgba(245, 222, 179, 50%);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: xxx-large;
+}
+/* the 2 whole divs */
+.whole {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 200px;
+}
+.holder {
+  /* position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  width: 100%;
+  height: 500px;
+  display: flex;
+}
+.sidebar {
+  width: 50%;
+  background-color: rgba(190, 193, 196, 90%);
+}
+.splitbill {
+  width: 50%;
+  /* background-color: rgba(255, 228, 196, 50%); */
+
+  background-color: cornsilk;
+}
+/* the friend list */
+img {
+  height: 80px;
+  width: auto;
+  border-radius: 50%;
+}
+.friends {
+  padding-left: 0px;
+  margin-top: 0px;
+}
+.friend {
+  display: flex;
+  padding: 5px 0px 1px 20px;
+  border: 1px solid rgba(231, 235, 240, 0.9);
+  margin: 5px;
+}
+.list {
+  padding-left: 20px;
+}
+/* add friend */
+
+.addfriend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgb(216, 170, 72);
+  padding: 20px;
+}
+.addbutton {
+  background-color: rgb(255, 165, 0);
+  height: 30px;
+  width: 120px;
+  border-radius: 5px;
+  margin-top: 5px;
+  position: absolute;
+  right: 530px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input-group {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.input-group h4 {
+  margin-right: 10px;
+
+  font-size: 1.5rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* split bill */
+.a {
+  position: absolute;
+  right: 10px;
+}
+.splitholder {
+  background-color: cornsilk;
+  padding: 20px;
+}
+.containersplit {
+  font-size: xx-large;
+  padding-bottom: 10px;
+}
+.splitbutton {
+  position: absolute;
+  right: 50px;
+  background-color: rgb(255, 165, 0);
+  height: 35px;
+  width: 130px;
+
+  border-radius: 5px;
+}
+.adddiv {
+  width: 100%;
+  height: 20px;
+}
+.button {
+  background-color: rgb(255, 165, 0);
+  height: 30px;
+  width: 70px;
+  border-radius: 5px;
+  margin-top: 30px;
+  position: absolute;
+  right: 480px;
+}
+button:hover {
+  background-color: rgb(243, 202, 125);
+}
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+select {
+  width: 100px;
+}
+h3 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+  font-size: 1.75rem;
+  margin-top: 0px;
+}
+input {
+  height: 20px;
+}
+.selected {
+  background-color: cornsilk;
 }
