@@ -42,11 +42,10 @@ function Container() {
     setshowaddfriend(false);
   }
   function handleSelectedFriend(friend) {
-    setselectedfriend(friend);
+    setselectedfriend((cur) => (cur?.id === friend.id ? null : friend));
+    setshowaddfriend(false);
   }
   function handleSplitBill(value) {
-    console.log(value);
-
     setfriends((friends) =>
       friends.map((friend) =>
         friend.id === selectedfriend.id
@@ -54,6 +53,8 @@ function Container() {
           : friend
       )
     );
+
+    setselectedfriend(null);
   }
   return (
     <div className="whole">
@@ -154,14 +155,15 @@ function Friends({ friends, handleSelectedFriend, selectedfriend }) {
       <div className="list">
         <h3>{friends.name}</h3>
         <p>
-          {friends.balance < 0 &&
+          {friends.balance > 0 &&
             `${friends.name} owes you ${friends.balance}$`}
-          {friends.balance > 0 && `you owe ${friends.name} ${friends.balance}$`}
+          {friends.balance < 0 &&
+            `you owe ${friends.name} ${Math.abs(friends.balance)}$`}
           {friends.balance === 0 && `you and ${friends.name} are even`}
         </p>
       </div>
       <button className="button" onClick={() => handleSelectedFriend(friends)}>
-        Select
+        {selected ? "Close" : "Select"}
       </button>
     </li>
   );
@@ -172,15 +174,15 @@ function SplitBill({ onSelect, handleSplitBill }) {
   const [yourexpense, setyourexpense] = useState(0);
   const [whopaid, setwhopaid] = useState("you");
 
+  const paidbyfriend = bill ? bill - yourexpense : "";
+
   function onSplitBill(e) {
     e.preventDefault();
 
     if (!bill || !yourexpense) return;
 
-    const friendShare = whopaid === "you" ? bill - yourexpense : yourexpense;
-
     // Call the parent component function to handle the split bill
-    handleSplitBill(friendShare);
+    handleSplitBill(whopaid === "you" ? paidbyfriend : -yourexpense);
     // setbill(0);
     // setwhopaid("you");
     // setyourexpense(0);
